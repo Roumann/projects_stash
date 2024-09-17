@@ -16,8 +16,10 @@ As of writing this, I am interested in 2d game dev and physics simulations. So m
 
 Here are some cool resources that I found while creating these projects:
 
-- [GameDev Resources] 
+- GameDev Resources
     - [Resource 1](https://github.com/Roumann/projects_stash)
+        - Some text about the resource.
 
-- [Physics Resources]
+- Physics Resources
     - [Resource 1](https://github.com/Roumann/projects_stash)
+        - Some text about the resource.
