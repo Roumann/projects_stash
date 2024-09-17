@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Map editor</title>
+  </head>
+  <link rel="stylesheet" href="./main.css" />
+  <body>
+    <div class="wrapper">
+      <div class="header">
+        <h1>Map editor</h1>
+        <div>
+          <button onclick="clearMap()">Clear 🧹</button>
+          <button onclick="saveCurrentMap()">Save 💾</button>
+          <button onclick="deleteSavedMap()">Delete 🗑️</button>
+        </div>
+      </div>
+
+      <div class="maps">
+        <div class="tileSetContainer" style="position: relative">
+          <img id="tileset" src="./images/tileset.png" alt="tileset" />
+          <span id="selectedTile"></span>
+        </div>
+
+        <div style="position: relative">
+          <canvas id="map" width="240" height="240"></canvas>
+          <span id="showPlacement"></span>
+        </div>
+      </div>
+
+      <div class="controls">
+        <div>
+          <h2>Layer selection</h2>
+          <p class="layerInfo">
+            Selected Layer: <span id="selectedLayerNumber">Bottom</span>
+          </p>
+          <button id="selectL0">Bottom</button>
+          <button id="selectL1">Middle</button>
+          <button id="selectL2">Top</button>
+        </div>
+        <label for="higlighLayer"
+          ><input type="checkbox" id="higlighLayer" />Higlight Layer
+        </label>
+      </div>
+    </div>
+  </body>
+  <script src="main.js"></script>
+</html>

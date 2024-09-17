@@ -1,0 +1,110 @@
+html {
+  height: 100%;
+}
+
+body {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+
+  height: 100%;
+  margin: 0;
+
+  color: aliceblue;
+  font-family: sans-serif;
+  background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+}
+
+img,
+canvas {
+  image-rendering: pixelated;
+  box-shadow: 0 0 0 2px #000000;
+}
+
+h1 {
+  font-size: 1.5rem;
+  margin: 0 0 1rem 0;
+}
+
+h2 {
+  font-size: 1rem;
+  margin: 0;
+}
+
+p {
+  color: aliceblue;
+}
+
+button {
+  background-color: #3d253b;
+  color: aliceblue;
+  padding: 0.3rem 0.5rem;
+  border: none;
+  border-radius: 0.3rem;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  font-size: 0.75rem;
+
+  &:hover {
+    background-color: #423243;
+    cursor: pointer;
+    transform: scale(1.05);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+
+  padding: 1rem;
+  background-color: #1c2229;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+}
+
+.maps {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin: 1.5rem 0;
+  font-size: 0.75rem;
+
+  .layerInfo {
+    margin: 0 0 0.5rem 0;
+    color: rgb(240, 248, 255, 0.6);
+  }
+}
+
+#selectedTile {
+  border: 1px solid red;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 16px;
+  height: 16px;
+}
+
+#showPlacement {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 1px 0px 0px 1px;
+  width: 16px;
+  height: 16px;
+  background-color: hsla(0, 0%, 100%, 0.05);
+  pointer-events: none;
+}
