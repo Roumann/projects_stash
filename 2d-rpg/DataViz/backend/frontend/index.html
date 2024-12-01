@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DataViz</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div>
+      <canvas id="grapCanvas"></canvas>
+      <div>
+        <button onclick="dispose()">Delete Graph</button>
+        <button onclick="save()">Save Graph</button>
+      </div>
+    </div>
+  </body>
+  <!-- <script src="main.js"></script> -->
+  <script src="utils.js"></script>
+  <script src="graphEditor.js"></script>
+  <script src="viewport.js"></script>
+
+  <script src="classes/graph.js"></script>
+  <script src="classes/point.js"></script>
+  <script src="classes/segment.js"></script>
+
+  <script>
+    function dispose() {
+      graphEditor.dispose();
+    }
+
+    function save() {
+      localStorage.setItem("graph", JSON.stringify(graph));
+    }
+
+    grapCanvas.width = 600;
+    grapCanvas.height = 600;
+    grapCanvas.style.backgroundColor = "#f0f0f0";
+    const ctx = grapCanvas.getContext("2d");
+
+    //Load saved graph and serialize it to JSON
+    const graphString = localStorage.getItem("graph");
+    const graphInfo = graphString ? JSON.parse(graphString) : null;
+    //Load saved if no graph is saved create empty canvas
+    const graph = graphInfo ? Graph.load(graphInfo) : new Graph();
+    // Enables dragging and pannig and zooming of canvas
+    const viewport = new Viewport(grapCanvas);
+
+    const graphEditor = new GraphEditor(viewport, graph);
+
+    //Main animation loop
+    animate();
+    function animate() {
+      viewport.reset();
+      graphEditor.display(viewport);
+      requestAnimationFrame(animate);
+    }
+  </script>
+</html>

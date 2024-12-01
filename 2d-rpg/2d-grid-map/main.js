@@ -74,13 +74,14 @@ function saveCurrentMap() {
   localStorage.setItem("pixel-map", JSON.stringify(layers));
 }
 
-function copyMap() {
-  navigator.clipboard.writeText(JSON.stringify(layers));
-}
-
 function deleteSavedMap() {
   localStorage.removeItem("pixel-map");
   clearMap();
+}
+
+// TODO: copy map
+function copyMap() {
+  navigator.clipboard.writeText(JSON.stringify(layers));
 }
 
 function clearMap() {
